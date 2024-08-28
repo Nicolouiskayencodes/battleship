@@ -17,6 +17,9 @@ export default function GameBoard(){
   function getBoard(){
     return board;
   }
+  //count when ships are placed and sunk for win condition
+  let shipsPlaced = 0;
+  let shipsSunk = 0;
 
   //Make function to place ships on the board
   function placeShip(start, direction, size){
@@ -67,7 +70,25 @@ export default function GameBoard(){
       let coordinates = spaces[i];
       board[coordinates[0]][coordinates[1]].target = ship;
     }
+    shipsPlaced++;
   }
 
-  return {getBoard, placeShip}
+  function receiveAttack(coordinate){
+    const location = board[coordinate[0]][coordinate[1]]
+    if (location.shot === true){
+      return 'Already shot'
+    }
+    location.shot = true;
+    if (location.target !== null) {
+      location.target.hit();
+      if(location.target.isSunk() === true){
+        shipsSunk++
+      };
+      if (shipsSunk === shipsPlaced){
+        return true;
+      }
+    }
+  }
+
+  return {getBoard, placeShip, receiveAttack}
 }

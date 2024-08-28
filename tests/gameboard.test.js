@@ -25,4 +25,16 @@ describe('Testing Board',()=>{
     test('Out of bounds', ()=>
     expect(board.placeShip([9,9], 'right', 3)).toBe('Out of bounds'));
   })
+  describe('Receive shot', ()=>{
+    let newBoard = GameBoard();
+    beforeAll(()=> newBoard.placeShip([0,0], 'right', 3));
+    test('shoot twice',()=>{
+      newBoard.receiveAttack([5,5])
+      expect(newBoard.receiveAttack([5,5])).toBe('Already shot')
+    })
+    test('all sunk', ()=>{
+      newBoard.receiveAttack([0,0])
+      newBoard.receiveAttack([0,1])
+      expect(newBoard.receiveAttack([0,2])).toBe(true)})
+  })
 })
