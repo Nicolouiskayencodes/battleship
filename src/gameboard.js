@@ -83,10 +83,12 @@ export default function GameBoard(){
       location.target.hit();
       if(location.target.isSunk() === true){
         shipsSunk++
+        if (shipsSunk === shipsPlaced){
+          return true;
+        } else {
+          return 'sunk';
+        }
       };
-      if (shipsSunk === shipsPlaced){
-        return true;
-      }
     }
   }
 

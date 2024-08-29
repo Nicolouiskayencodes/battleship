@@ -21,3 +21,29 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+.gameboard {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  height: 40px;
+  display: flex;
+}
+.space{
+  border: 1px solid black;
+  width: 40px;
+}
+.hit {
+  background-color: red;
+}
+.miss {
+  background-color: grey;
+}
+
+.game {
+  height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
