@@ -1,2 +1,4 @@
 import './style.css';
-import './ui.js';
+import makeGame from './ui';
+
+makeGame();
