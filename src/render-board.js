@@ -125,28 +125,73 @@ export default function render(player, player2, activePlayer = 1) {
                         board[i][j].shot === true &&
                         board[i][j].target.isSunk() === false
                       ) {
-                        if (i + 1 < 9) {
+                        if (i + 1 <= 9) {
+                          if (board[i + 1][j].shot === true && board[i + 1][j].target ==! null) {
+                            if (i - 1 >= 0) {
+                              if (board[i - 1][j].shot !== true) {
+                                x = i - 1;
+                                y = j;
+                                return;
+                              }
+                            } 
+                          }
+                        } 
+                        if (j + 1 <= 9) {
+                          if (board[i][j + 1].shot === true && board[i][j+1].target!==null) {
+                            if (j - 1 >= 0) {
+                              if (board[i][j - 1].shot !== true) {
+                                x = i;
+                                y = j - 1;
+                                return;
+                              }
+                            }
+                          }
+                        } 
+                        if (i - 1 >= 0) {
+                          if (board[i - 1][j].shot === true && board[i - 1][j].target !== null) {
+                            if (i + 1 <= 9) {
+                              if (board[i + 1][j].shot !== true) {
+                                x = i + 1;
+                                y = j;
+                                return;
+                              }
+                            } 
+                          }
+                        } 
+                        if (j - 1 >= 0) {
+                          if (board[i][j - 1].shot === true && board[i][j - 1].target !== null) {
+                            if (j + 1 <= 9) {
+                              if (board[i][j + 1].shot !== true) {
+                                x = i;
+                                y = j + 1;
+                                return;
+                              }
+                            } 
+                          }
+                        }
+                      // break
+                        if (i + 1 <= 9) {
                           if (board[i + 1][j].shot !== true) {
                             x = i + 1;
                             y = j;
                             return;
                           }
                         } 
-                        if (j + 1 < 9) {
+                        if (j + 1 <= 9) {
                           if (board[i][j + 1].shot !== true) {
                             x = i;
                             y = j + 1;
                             return;
                           }
                         } 
-                        if (i - 1 > 0) {
+                        if (i - 1 >= 0) {
                           if (board[i - 1][j].shot !== true) {
                             x = i - 1;
                             y = j;
                             return;
                           }
                         } 
-                        if (j - 1 > 0) {
+                        if (j - 1 >= 0) {
                           if (board[i][j - 1].shot !== true) {
                             x = i;
                             y = j - 1;
