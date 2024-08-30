@@ -72,7 +72,7 @@ h6 {
   display: flex;
   justify-content: space-around;
   height: 70vh;
-  width: 70vw;
+  width: max(500px, 40vw);
 }
 .ship,
 .ship2 {
@@ -80,6 +80,8 @@ h6 {
   font-size: 1px;
   color: blue;
   background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #horizontal-five {
@@ -131,7 +133,6 @@ h6 {
   border: 2px purple inset;
   height: 20px;
   width: 20px;
-  position: fixed;
 }
 .occupied {
   background-color: red;
@@ -147,4 +148,8 @@ dialog {
 }
 h1 {
   text-align: center;
+}
+.over{
+  background-color: orangered;
+  opacity: 60%;
 }

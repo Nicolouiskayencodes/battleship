@@ -49,9 +49,15 @@ export default function makeGame() {
         }
         cell.addEventListener("dragover", (event) => {
           event.preventDefault();
+          cell.classList.add('over');
         });
+        cell.addEventListener("dragleave", (event)=>{
+          event.preventDefault();
+          cell.classList.remove('over');
+        })
         cell.addEventListener("drop", (event) => {
           event.preventDefault();
+          cell.classList.remove('over');
           let value = draggable.textContent.split(",");
           let x = parseInt(value[1]);
           let y = value[0].replaceAll("'", "");
@@ -139,9 +145,15 @@ export default function makeGame() {
         }
         cell.addEventListener("dragover", (event) => {
           event.preventDefault();
+          cell.classList.add('over');
         });
+        cell.addEventListener("dragleave", (event)=>{
+          event.preventDefault();
+          cell.classList.remove('over');
+        })
         cell.addEventListener("drop", (event) => {
           event.preventDefault();
+          cell.classList.remove('over');
           let value = draggable.textContent.split(",");
           let x = parseInt(value[1]);
           let y = value[0].replaceAll("'", "");
@@ -181,7 +193,6 @@ export default function makeGame() {
               document.querySelectorAll(".hidden").forEach((element) => {
                 element.classList.remove("hidden");
               });
-              console.log("placed5");
               document.querySelector("#player2ships").close();
               placed2 = 0;
             } else {
@@ -280,7 +291,6 @@ export default function makeGame() {
     place31();
     place32();
     place33();
-    console.log(player.board.getBoard());
   }
   newgame.addEventListener("click", () => {
     document.querySelector(".game").textContent = "";
