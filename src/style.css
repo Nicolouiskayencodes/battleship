@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 * {
@@ -8,17 +10,31 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -30,7 +46,7 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 40px;
   display: flex;
 }
-.space{
+.space {
   border: 1px solid black;
   width: 40px;
 }
@@ -47,22 +63,23 @@ p, h1, h2, h3, h4, h5, h6 {
   justify-content: space-around;
   align-items: center;
 }
-.labels{
+.labels {
   display: flex;
   justify-content: space-around;
 }
-#player1ships[open], #player2ships[open] {
+#player1ships[open],
+#player2ships[open] {
   display: flex;
   justify-content: space-around;
   height: 70vh;
   width: 70vw;
 }
-.ship, .ship2 {
+.ship,
+.ship2 {
   margin: 5px;
   font-size: 1px;
   color: blue;
   background-color: blue;
-
 }
 
 #horizontal-five {
@@ -89,15 +106,18 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 60px;
   width: 20px;
 }
-.placegame, .placegame2 {
+.placegame,
+.placegame2 {
   display: flex;
   flex-direction: column;
 }
-.placerow, .placerow2 {
+.placerow,
+.placerow2 {
   height: 20px;
   display: flex;
 }
-.placecell, .placecell2 {
+.placecell,
+.placecell2 {
   width: 20px;
   border: 1px solid, black;
   color: white;
@@ -113,10 +133,10 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 20px;
   position: fixed;
 }
-.occupied{
+.occupied {
   background-color: red;
 }
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -125,6 +145,6 @@ dialog {
   margin-left: auto;
   margin-right: auto;
 }
-h1{
+h1 {
   text-align: center;
 }
