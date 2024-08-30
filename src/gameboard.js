@@ -23,6 +23,9 @@ export default function GameBoard(){
 
   //Make function to place ships on the board
   function placeShip(start, direction, size){
+    if (direction === ''){
+      return 'wrong input'
+    }
     let ship = Ship(size);
     let spaces = [];
     if (direction === 'right'){

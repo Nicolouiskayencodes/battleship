@@ -14,6 +14,7 @@ let player2 = undefined;
 onePlayer.addEventListener('click', ()=>{
   player2 = Player('computer');
   placeShips(player1);
+  placeCPUShips(player2);
   document.querySelector('.game').textContent = '';
   render(player1, player2);
   players.close();
@@ -30,6 +31,7 @@ twoPlayer.addEventListener('click', ()=>{
 
 const handles = document.querySelectorAll('.handle');
 let placed = 0;
+let placed2 = 0;
 function placeShips(player){
   const ships = document.querySelectorAll('.ship');
   document.querySelector('#player1ships').showModal();
@@ -119,7 +121,6 @@ function placeShips(player){
 }
 function placeShips2(player){
   const ships = document.querySelectorAll('.ship2');
-  const drops = document.querySelectorAll('.placecell2');
   document.querySelector('#player2ships').showModal();
   let grid = document.querySelector('.placegame2');
   let board = player.board;
@@ -169,13 +170,14 @@ function placeShips2(player){
               element.classList.add('hidden')
             })
           }
-          placed++
-          if (placed === 5) {
+          placed2++
+          if (placed2 === 5) {
             document.querySelectorAll('.hidden').forEach(element=>{
               element.classList.remove('hidden');
             })
+            console.log('placed5')
             document.querySelector('#player2ships').close();
-            placed = 0;
+            placed2 = 0;
           } else {
             placeShips2(player);
           }
@@ -204,6 +206,75 @@ function placeShips2(player){
       ship.setAttribute('draggable', 'false');
     })
   })
+}
+function placeCPUShips(player){
+  function generate() {
+  let x = Math.floor(Math.random()*10);
+  let y = Math.floor(Math.random()*10);
+  let z = Math.floor(Math.random()*2);
+  return [[x, y], z];
+  }
+  function place5(){
+    let x = generate();
+    let direction = 'right';
+    if (x[1] === 1) {
+      direction = 'down';
+    }
+    let place = player.board.placeShip(x[0], direction, 5)
+    if (place !== undefined){
+      place5()
+    }
+  }
+  function place4(){
+    let x = generate();
+    let direction = 'right';
+    if (x[1] === 1) {
+      direction = 'down';
+    }
+    let place = player.board.placeShip(x[0], direction, 4)
+    if (place !== undefined){
+      place4()
+    }
+  }
+  function place31(){
+    let x = generate();
+    let direction = 'right';
+    if (x[1] === 1) {
+      direction = 'down';
+    }
+    let place = player.board.placeShip(x[0], direction, 3)
+    if (place !== undefined){
+      place31()
+    }
+  }
+  function place32(){
+    let x = generate();
+    let direction = 'right';
+    if (x[1] === 1) {
+      direction = 'down';
+    }
+    let place = player.board.placeShip(x[0], direction, 3)
+    if (place !== undefined){
+      place32()
+    }
+  }
+  function place33(){
+    let x = generate();
+    let direction = 'right';
+    if (x[1] === 1) {
+      direction = 'down';
+    }
+    let place = player.board.placeShip(x[0], direction, 3)
+    if (place !== undefined){
+      place33()
+    }
+  }
+  place5();
+  place4();
+  place31();
+  place32();
+  place33();
+  console.log(player.board.getBoard())
 }
 newgame.addEventListener('click', () => {
   document.querySelector('.game').textContent = ''
