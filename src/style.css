@@ -121,7 +121,9 @@ h6 {
 .placecell,
 .placecell2 {
   width: 20px;
-  border: 1px solid, black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
   color: white;
   font-size: 2px;
 }
